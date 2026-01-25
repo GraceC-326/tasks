@@ -6,11 +6,10 @@ function App(): React.JSX.Element {
         <div className="App">
             <header className="App-header">
                 UM COS420 with React Hooks and TypeScript
-                Grace Cochran
             </header>
             <p>
                 Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload.
+                automatically reload. Grace Cochran
             </p>
         </div>
     );
