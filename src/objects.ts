@@ -19,9 +19,9 @@ export function makeBlankQuestion( id: number, name: string, type: QuestionType)
 export function isCorrect(question: Question, answer: string): boolean {
     answer = answer.toLowerCase();
     answer = answer.trim();
-    question.expected = question.expected.toLowerCase();
-    question.expected = question.expected.trim();
-    if (answer === question.expected){
+    const checktemp = question.expected.toLowerCase();
+    const check = checktemp.trim();
+    if (answer === check){
         return true;
     } else {
         return false;
@@ -100,6 +100,7 @@ export function renameQuestion(question: Question, newName: string): Question {
  * published; if it was published, now it should be not published.
  */
 export function publishQuestion(question: Question): Question {
+    question = {...question, published: !(question.published)}
     return question;
 }
 
