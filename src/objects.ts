@@ -5,12 +5,8 @@ import { Question, QuestionType } from "./interfaces/question";
  * `expected` should be empty strings, the `options` should be an empty list, the `points`
  * should default to 1, and `published` should default to false.
  */
-export function makeBlankQuestion(
-    id: number,
-    name: string,
-    type: QuestionType
-): Question {
-    return {};
+export function makeBlankQuestion( id: number, name: string, type: QuestionType): Question {
+    return {id: id, name: name, type: type, body: "", expected: "", options : [], points: 1, published: false};
 }
 
 /**
@@ -21,7 +17,15 @@ export function makeBlankQuestion(
  * HINT: Look up the `trim` and `toLowerCase` functions.
  */
 export function isCorrect(question: Question, answer: string): boolean {
-    return false;
+    answer = answer.toLowerCase();
+    answer = answer.trim();
+    question.expected = question.expected.toLowerCase();
+    question.expected = question.expected.trim();
+    if (answer === question.expected){
+        return true;
+    } else {
+        return false;
+    }
 }
 
 /**
@@ -31,7 +35,11 @@ export function isCorrect(question: Question, answer: string): boolean {
  * be exactly one of the options.
  */
 export function isValid(question: Question, answer: string): boolean {
-    return false;
+    if (question.type === "short_answer_question") {
+        return true;
+    }
+    const check = question.options.some((option: string): boolean => answer === option);
+    return check;
 }
 
 /**
