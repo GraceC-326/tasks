@@ -29,7 +29,8 @@ export function getNonEmptyQuestions(questions: Question[]): Question[] {
  * question is not found, return `null` instead.
  */
 export function findQuestion(questions: Question[], id: number): Question | null {
-    return null;
+    const foundQuestion = questions.find((question: Question): boolean => question.id === id);
+    return foundQuestion ?? null;
 }
 
 /**
