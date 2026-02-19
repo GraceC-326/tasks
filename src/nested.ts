@@ -22,10 +22,7 @@ export function getNonEmptyQuestions(questions: Question[]): Question[] {
  * Consumes an array of questions and returns the question with the given `id`. If the
  * question is not found, return `null` instead.
  */
-export function findQuestion(
-    questions: Question[],
-    id: number
-): Question | null {
+export function findQuestion(questions: Question[], id: number): Question | null {
     return null;
 }
 
@@ -71,12 +68,7 @@ export function publishAll(questions: Question[]): Question[] {
  * you defined in the `objects.ts` file.
  * Hint: as usual, do not modify the input questions array
  */
-export function addNewQuestion(
-    questions: Question[],
-    id: number,
-    name: string,
-    type: QuestionType
-): Question[] {
+export function addNewQuestion(questions: Question[], id: number, name: string, type: QuestionType): Question[] {
     return [];
 }
 
@@ -87,11 +79,7 @@ export function addNewQuestion(
  * Hint: as usual, do not modify the input questions array, 
  *       to make a new copy of a question with some changes, use the ... operator
  */
-export function renameQuestionById(
-    questions: Question[],
-    targetId: number,
-    newName: string
-): Question[] {
+export function renameQuestionById(questions: Question[], targetId: number, newName: string): Question[] {
     return [];
 }
 
@@ -107,11 +95,6 @@ export function renameQuestionById(
  * 
  * Hint: you need to use the ... operator for both the question and the options array
  */
-export function editOption(
-    questions: Question[],
-    targetId: number,
-    targetOptionIndex: number,
-    newOption: string
-): Question[] {
+export function editOption(questions: Question[], targetId: number, targetOptionIndex: number, newOption: string): Question[] {
     return [];
 }
