@@ -111,5 +111,10 @@ export function renameQuestionById(questions: Question[], targetId: number, newN
  * Hint: you need to use the ... operator for both the question and the options array
  */
 export function editOption(questions: Question[], targetId: number, targetOptionIndex: number, newOption: string): Question[] {
-    return [];
+    const optionedQuestions = questions.map((question) => question.id === targetId ? 
+        {...question, options: targetOptionIndex === -1 ? 
+            [...question.options, newOption] 
+        : question.options.map((option, index) => index === targetOptionIndex ? newOption : option )} 
+    : question);
+    return optionedQuestions;
 }
