@@ -1,5 +1,6 @@
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
+import { makeBlankQuestion } from "./objects";
 
 /**
  * Consumes an array of questions and returns a new array with only the questions
@@ -80,7 +81,9 @@ export function publishAll(questions: Question[]): Question[] {
  * Hint: as usual, do not modify the input questions array
  */
 export function addNewQuestion(questions: Question[], id: number, name: string, type: QuestionType): Question[] {
-    return [];
+    const newQuestion = makeBlankQuestion(id, name, type) 
+    const addedQuestions = [...questions, newQuestion]
+    return addedQuestions;
 }
 
 /***
