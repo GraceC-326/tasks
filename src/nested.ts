@@ -94,7 +94,8 @@ export function addNewQuestion(questions: Question[], id: number, name: string, 
  *       to make a new copy of a question with some changes, use the ... operator
  */
 export function renameQuestionById(questions: Question[], targetId: number, newName: string): Question[] {
-    return [];
+    const renamedQuestions = questions.map((question: Question) => question.id === targetId ? { ...question, name: newName } : question );
+    return renamedQuestions;
 }
 
 /**
