@@ -2,8 +2,29 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { QuestionType } from "../interfaces/question";
 
+const QUESTION_TYPES: Record<QuestionType, QuestionType> = {
+    multiple_choice_question: "short_answer_question",
+    short_answer_question: "multiple_choice_question"
+};
+
 export function ChangeType(): React.JSX.Element {
-    return <div>Change Type</div>;
+
+    const [type, setType] = useState<QuestionType>("short_answer_question");
+
+    function changeTheType(): void {
+        const newType = QUESTION_TYPES[type]
+        setType(newType);
+    }
+
+    return (
+        <div>
+            <Button onClick={changeTheType}>Change Type</Button>
+
+            {type === "multiple_choice_question" && <p>Multiple Choice</p>}
+
+            {type === "short_answer_question" && <p>Short Answer</p>}
+        </div>
+    );
 }
 
 

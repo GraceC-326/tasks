@@ -12,7 +12,38 @@ export function d6(): number {
 }
 
 export function TwoDice(): React.JSX.Element {
-    return <div>Two Dice</div>;
+    const [leftDie, setLeftDie] = useState<number>(1);
+    const [rightDie, setRightDie] = useState<number>(2);
+
+    const rollLeft = () => {
+        setLeftDie(d6());
+    };
+
+    const rollRight = () => {
+        setRightDie(d6());
+    };
+
+    const isSnakeEyes = leftDie === 1 && rightDie === 1;
+    const isWin = leftDie === rightDie && !isSnakeEyes;
+
+    return (
+        <div>
+            <h2>Two Dice</h2>
+
+            <div>
+                Left die last rolled a <span data-testid="left-die">{leftDie}</span>.{"    "}
+                Right die last rolled a <span data-testid="right-die">{rightDie}</span> .
+            </div>
+
+            <div>
+                <Button onClick={rollLeft}>Roll Left</Button>{" "}
+                <Button onClick={rollRight}>Roll Right</Button>
+            </div>
+
+            {isSnakeEyes && <p>Snake Eyes! You Lose!</p>}
+            {isWin && <p>Matching Pair! You Win!</p>}
+        </div>
+    );
 }
 
 
@@ -28,3 +59,5 @@ The TwoDice component will simulate a game where you roll two dice in an attempt
 - When the two states are equal, render a message that includes the word Win.
 - If you do all these and are still not passing all tests, read the test file, it is a good practice! In much of software engineering, the tests are the product spec.
 */
+
+// Note: span works like <span data-testid="left-die">42</span>
